@@ -100,7 +100,7 @@ int main()
             cout << "Klijent koji ima najveci saldo je: " << prezimeIme[max_indeks] << endl;
             cout << "Broj racuna s negativnim saldom: " << count_if(saldo, saldo+brKlijenata, negativan) << endl;
             cout << "Broj tekucih racuna je: " << count_if(brRacuna, brRacuna+brKlijenata, tekuci) << endl;
-            system("pause");
+            system("pause"); // koristeno kako bi se zadrzao ispis podataka jer nakon pritiska 
         }
     }
     return 0;
