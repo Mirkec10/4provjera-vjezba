@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <numeric>
+
 using namespace std;
 
 bool negativan(double broj)
@@ -58,8 +59,7 @@ int main()
         cout<<"Broj 3 za pretragu po prezimenu i imenu"<<endl;
         cout<<"Broj 4 za brisanje racuna"<<endl;
         cout<<"Broj 5 za izmjenu podataka prema broju računa"<<endl;
-        cout<<"Broj 6 za ispis sortirano po prezimenu i imenu (trenutno onemoguceno)"<<endl;
-        cout<<"Broj 7 za izlaz iz programa"<<endl;
+        cout<<"Broj 6 za izlaz iz programa"<<endl;
         cout<<"============================================="<< endl;
         cin>>odabir;
         cout<<endl;
@@ -116,30 +116,65 @@ int main()
             system("pause");
         }
         else if(odabir == 4)
-               {
-                   unsigned long long int broj;
-                   cout << "Unesite broj racuna kojeg zelite izbrisati: ";
-                   cin >> broj;
-                   int i;
-                   for(i = 0; i < brKlijenata; i++)
-                   {
-                       if(brRacuna[i] == broj)
-                       {
-                           for(int j = i; j < brKlijenata - 1; j++)
-                           {
-                               brRacuna[j] = brRacuna[j+1];
-                               prezimeIme[j] = prezimeIme[j+1];
-                               saldo[j] = saldo[j+1];
-                           }
-                           brKlijenata--;
-                           break;
-                       }
-                   }
-                   if(i==brKlijenata)
-                       cout << "Trazenog racuna nema." << endl;
+        {
+            unsigned long long int broj;
+            cout << "Unesite broj racuna kojeg zelite izbrisati: ";
+            cin >> broj;
+            int i;
+            for(i = 0; i < brKlijenata; i++)
+            {
+                if(brRacuna[i] == broj)
+                {
+                    for(int j = i; j < brKlijenata - 1; j++)
+                    {
+                        brRacuna[j] = brRacuna[j+1];
+                        prezimeIme[j] = prezimeIme[j+1];
+                        saldo[j] = saldo[j+1];
+                    }
+                    brKlijenata--;
+                    break;
+                }
+            }
+            if(i==brKlijenata)
+                cout << "Trazenog racuna nema." << endl;
+        }
+        else if(odabir == 5)
+        {
+            string imena[1000];
+            for(int i=0;i<brKlijenata;i++)
+            {
+                imena[i]=prezimeIme[i];
+            }
+            sort(imena, imena+brKlijenata);
+            for(int i=0;i<brKlijenata;i++)
+            {
+                for(int j=0;j<brKlijenata;j++)
+                {
+                    if(imena[i] == prezimeIme[j])
+                    {
+                        cout<<prezimeIme[j]<<endl<<brRacuna[j]<<endl<<saldo[j]<< " HRK"<<endl;
+                    }
+                }
+            }
+        }
+        else if(odabir == 6)
+                {
+                    cout << "Izlaz iz programa" << endl;
+                    break;
+                }
+                else
+                {
+                    cout << "Krivi unos." << endl;
+                }
+                cout << endl;
+                system("pause");
+            }
+            return 0;
+        }
 
-               }
 
-    }
-    return 0;
-}
+
+
+
+
+
