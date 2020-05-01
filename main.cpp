@@ -100,7 +100,20 @@ int main()
             cout << "Klijent koji ima najveci saldo je: " << prezimeIme[max_indeks] << endl;
             cout << "Broj racuna s negativnim saldom: " << count_if(saldo, saldo+brKlijenata, negativan) << endl;
             cout << "Broj tekucih racuna je: " << count_if(brRacuna, brRacuna+brKlijenata, tekuci) << endl;
-            system("pause");
+            system("pause"); // koristeno kako bi se zadrzao ispis podataka jer nakon pritiska broja 2 program ne ispisuje stanje podataka do pritiska neke tipke vec automaski vraca na glavni izbornik
+        }
+        else if(odabir == 3)
+        {
+            cout << "Unesite ime i prezime koje pretrazujete: " << endl;
+            string pretraga;
+            cin.ignore();
+            getline(cin, pretraga);
+            if(ispisi_podatke(prezimeIme,brRacuna,saldo,brKlijenata,pretraga)==false)
+            {
+                cout << "Nema takvih klijenata." << endl;
+
+            }
+             system("pause");
         }
     }
     return 0;
